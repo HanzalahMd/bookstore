@@ -1,0 +1,44 @@
+<div class="row mb-5 top-bar" style="background-color: black; padding: 70px">
+    <div class="col">
+        <h1 style="text-align: center; color: white; ">Book Review</h1>
+    </div>
+</div>
+
+{{#if hasContent}}
+    {{#each displayReviews}}
+
+<h1 style="text-align: center; color: black; ">{{this.title}} by {{this.author}}</h1>
+
+        <table class="table my-5">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Reviewer</th>
+            <th scope="col">Date</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Full Review</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{this.reviewer}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.summary}}</td>
+            <td><a href="{{this.url}}"><button type="button" class="btn btn-success">Read more</button></a></td>
+        </tr>
+    </tbody>
+</table>
+<h2 style="text-align: center;">{{copy}}</h2>
+    {{/each}}
+{{else}}
+    <h3>The review is not available</h3>
+{{/if}}
+
+<script>
+    function goBack() {
+  window.history.back();
+}
+</script>
+
+<div class="mb-5 mt-3">
+<button class="btn btn-secondary" onclick="goBack()">Back</button>
+<a href="/"><button type="button" class="btn btn-success">Home</button></a>

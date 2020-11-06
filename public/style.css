@@ -1,0 +1,18 @@
+.letter {
+    margin: 20px 25px;
+    box-shadow: 3px 3px #0000003a;
+    padding: 10px 25px;
+}
+
+.top-bar{
+    padding: 50px;
+    margin-top: -50px;
+}
+
+h1 {
+    text-decoration: none;
+}
+
+h1:hover {
+    text-decoration: none;
+}

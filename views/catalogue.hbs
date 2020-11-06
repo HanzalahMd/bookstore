@@ -1,0 +1,28 @@
+<div class="row mb-5 top-bar" style="background-color: black; padding: 70px">
+    <div class="col">
+        <h1 style="text-align: center; color: white; ">Titles that starts with {{search}}</h1>
+    </div>
+</div>
+
+<table class="table mt-5 table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Authors</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Pages</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each display}}
+        <tr>
+            <td><a href="books/{{this.book_id}}">{{this.title}}</a></td>
+            <td>{{this.authors}}</td>
+            <td>{{this.rating}}</td>
+            <td>{{this.pages}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<a href="/"><button type="button" class="btn btn-success">Home</button></a>

@@ -1,0 +1,25 @@
+<div class="row mb-5 top-bar" style="background-color: black; padding: 70px">
+    <div class="col">
+        <h1 style="text-align: center; color: white; ">My Bookstore</h1>
+    </div>
+</div>
+
+<div class="d-flex justify-content-start flex-wrap">
+
+{{#each letterArr}}
+<form method="GET" action="/{{this}}/1">
+    <input type="hidden" class="form-control" name="q" value="{{this}}">
+    <button type="submit" class="btn btn-info btn-lg letter">{{this}}</button>
+</form>
+
+{{/each}}
+
+{{#each numArr}}
+<form method="GET" action="/{{this}}/1">
+    <input type="hidden" class="form-control" name="q" value="{{this}}">
+    <button type="submit" class="btn btn-info btn-lg letter">{{this}}</button>
+</form>
+
+{{/each}}
+
+</div>

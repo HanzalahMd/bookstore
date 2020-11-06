@@ -1,0 +1,56 @@
+
+
+<div class="row mb-5 top-bar" style="background-color: black; padding: 70px">
+    <div class="col">
+        <h1 style="text-align: center; color: white; ">Book Details</h1>
+    </div>
+</div>
+<div class="row my-3">
+        <div class="col">
+                <div class="col d-flex flex-wrap justify-content-center">
+                <img src="{{book.image_url}}" alt="">
+            </div>
+        </div>
+</div>
+            
+<div class="row mt-3">
+
+    <div class="col">
+            <table class="table table-striped">
+                    <tr>
+                        <td>Title</td>
+                        <td>{{ book.title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td>{{ book.authors }}</td>
+                    </tr>
+                    <tr>
+                        <td>Rating</td>
+                        <td>{{ book.rating }}</td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td>{{book.genres }}</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{{{ book.description }}}</td>
+                    </tr>
+            </table>   
+    </div>
+</div>
+
+<script>
+    function goBack() {
+  window.history.back();
+}
+</script>
+
+<div class="mb-5 mt-3">
+<button class="btn btn-secondary" onclick="goBack()">Back</button>
+<form method="GET" action="/books/review">
+    <input type="hidden" class="form-control" name="search" value="{{book.title}}">
+    <button type="submit" class="btn btn-success mt-3">Find Review</button>
+</form>
+</div>
