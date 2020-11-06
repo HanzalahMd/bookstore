@@ -13,14 +13,14 @@ app.set('view engine', 'hbs')
 
 const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || 3000;
 const URL = 'https://api.nytimes.com/svc/books/v3/reviews.json'
-const API_KEY = 'HXnPmsDAUt4y8JqwLdbzIMgE2YFSecTG' //process.env.API_KEY
+const API_KEY = process.env.API_KEY
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST || 'localhost',
     port: parseInt(process.env.BD_PORT) || 3306,
     database: process.env.DB_NAME || 'goodreads',
-    user: 'hanzo', //process.env.DB_USER,
-    password: 'hanzo', //process.env.DB_PWD
+    user: process.env.DB_USER,
+    password: process.env.DB_PWD,
     connectionLimit: 4
 })
 
