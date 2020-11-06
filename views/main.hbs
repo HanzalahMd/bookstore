@@ -4,6 +4,8 @@
     </div>
 </div>
 
+<h2 class="mb-5" style="text-align: center;">Search by Alphabets</h2>
+
 <div class="d-flex justify-content-start flex-wrap">
 
 {{#each letterArr}}
@@ -13,6 +15,14 @@
 </form>
 
 {{/each}}
+
+</div>
+
+<hr>
+<h2 class="my-5" style="text-align: center;">Search by Numbers</h2>
+
+
+<div class="d-flex justify-content-start flex-wrap mb-5">
 
 {{#each numArr}}
 <form method="GET" action="/{{this}}/1">

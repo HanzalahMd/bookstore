@@ -3,8 +3,10 @@ const hbs = require('express-handlebars')
 const mysql = require('mysql2/promise')
 const fetch = require('node-fetch')
 const withQuery = require('with-query').default
+const morgan = require('morgan')
 
 const app = express()
+app.use(morgan('combined'))
 
 app.engine('hbs', hbs({defaultLayout: 'default.hbs'}))
 app.set('view engine', 'hbs')
@@ -48,7 +50,7 @@ const SQL_GET_LIST_TITLE = 'select * from book2018 where title like ? limit 10 o
 const SQL_GET_BOOK_BY_BOOKID = 'select * from book2018 where book_id = ?'
 const SQL_GET_COUNT_BY_FIRST_CHAR = 'select count(*) as count from book2018 where title like ?'
 
-const letterArr = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const letterArr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const numArr = '0123456789'.split('');
 
 app.get('/', (req, res)=>{
@@ -162,7 +164,8 @@ app.get('/:getChar/:pageNum', async (req, res)=>{
             hasNextPage = false
         }
 
-        const result = await conn.query(SQL_GET_LIST_TITLE, [ `${q}%`, 10 ])
+        //[ `${q}%`, offset ]
+        const result = await conn.query(SQL_GET_LIST_TITLE, [`${searchChar.toLowerCase()}%`, offset])
         //console.log(result)
         const records = result[0]
 
